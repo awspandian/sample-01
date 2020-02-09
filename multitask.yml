@@ -1,0 +1,23 @@
+---
+- hosts: localhost
+  become: true
+
+  tasks:
+  - name: latest vsftp version installation
+    yum:
+      name: vsftpd
+      state: latest
+  - name: latest firewalld version installation
+    yum:
+      name: firewalld
+      state: latest
+  - name: vsfp enable and running
+    service:
+      name: vsftpd
+      enabled: true
+      state: started
+  - name: firewalld enable and running
+    service:
+      name: firewalld
+      enabled: true
+      state: started
